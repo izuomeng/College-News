@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>高校详情</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/detail.css">
+<link rel="stylesheet" type="text/css" href="_CSS_/test.css">
+<script src="_JS_/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".return_index").click(function(){
+            window.location.href = "index";
+        });
+    });
+    document.addEventListener('touchstart',function () {
+    });
+</script>
+<body>
+
+<div class="return_index">返回首页</div>
+<div class="title">
+    <a onclick="document.day.submit()">{$school}</a>
+</div>
+<form action="list" method="post" name="day">
+    <input type="hidden" name="day" value="{$day}">
+</form>
+<div style="height: 120px"></div>
+<div class="news">
+    <hr width="100%" color="#e6e6e6" size="1">
+</div>
+{volist name="school_news" id="news"}
+	<div class="news_tech">
+        <img id="tech_img" src="{$news.img}"/>
+        <a id="school_title" href="{$news.url}" target="_blank">{$news.title}
+        <p style="color: grey; font-size: 38px;line-height: 48px">&nbsp;&nbsp;&nbsp;&nbsp;{$news.summary}</p>
+        </a>
+    </div>
+    <div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+{/volist}
+</body>
+</html>

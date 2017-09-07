@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>高校详情</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/detail.css">
+<script src="_JS_/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".return_index").click(function(){
+            window.location.href = "index";
+        });
+    });
+    function a(){
+
+    }
+    document.addEventListener('touchstart',a);
+</script>
+<body>
+<div class="return_index">返回首页</div>
+<div class="title">选择学校</div>
+<div style="height: 100px"></div>
+<form method="post" name="MyForm" action="all">
+    <input type="hidden" value="{$day}" name="day">
+</form>
+<div class="all" onclick="document.MyForm.submit()">
+    全部高校
+</div>
+
+{volist name="schools" id="school"}
+<form action="choose" method="post" name="{$school.school}">
+    <input type="hidden" name="school" value="{$school.school}">
+    <input type="hidden" name="day" value="{$day}">
+</form>
+<div class="part" onclick="document.{$school.school}.submit()">{$school.school}</div>
+{/volist}
+
+</body>
+</html>

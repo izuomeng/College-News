@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>全部高校</title>
+</head>
+<body>
+{volist name="schools" id="school"}
+	<div style="text-align:left; vertical-align: middle;margin: 0 auto;margin-top: 60px;width: 60%; ">
+        <div style="text-align:left;padding-left: 10px; padding-right: 2px; vertical-align: middle;font-size: 35px;color:white;margin: 0 auto;width: 100%;background-color: orange; border-top-left-radius: 20px; border-top-right-radius: 20px">
+            {$school.school}
+        </div>
+
+        <div style="text-align: left;width: 100%;border-color:orange;border-style:solid; border-width:2px;padding-left:8px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px">
+			{volist name="all_news" id="news"}
+				{if condition="$news.school eq $school.school"}
+					<div style="text-align: left;width: 100%; padding-top: 5px; font-size: 25px;margin: 0 auto;">
+                    <a href="{$news.url}" style="color: black; text-decoration:none;">{$news.title}</a>
+                    <hr style="border:1px dashed #e6e6e6" width="100%" color="white" size="1">
+                </div>
+				{/if}
+			{/volist}
+		</div>
+	</div>
+{/volist}
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>历史新闻</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/test.css">
+<script type="text/javascript" src="_JS_/jquery.js"></script>
+<script type="text/javascript" src="_JS_/scrollto.js"></script>
+<script type="text/javascript" src="_JS_/index.js"></script>
+<body>
+<form id="pp" action="search.php" method="post">
+    <input id="search" type="search" placeholder="搜索..." name="search">
+</form>
+<div id="ps"></div>
+<div class="grey_line_top"></div>
+
+<!-- 日期和标题 -->
+<div class="top_title">
+    {$date}
+</div>
+
+<!-- 历史新闻 -->
+<div onclick="a()" class="sanjiao">▽</div>
+<ul class="liebiao" id="div1" style="display: none;">
+	{for start="1" end="11"}
+		<li onclick="document.getElementById('_form{$ten_days[$i]}').submit();">
+			{$ten_days[$i]}
+			<form id="_form{$ten_days[$i]}" method="post" action="history">
+				<input type="hidden" name="day" value="{$day[$i]}">
+                <input type="hidden" name="year" value="{$year[$i]}">
+                <input type="hidden" name="month" value="{$month[$i]}">
+			</form>
+		</li>
+	{/for}
+</ul>
+<div class="map">
+    <div class="navigate">
+        <div class="jump_Index" id="to_index">首页</div>
+        <div class="jump" id="to_School">高校</div>
+        <div class="jump" id="to_Tech">科技</div>
+        <div class="jump" id="to_BigData">大数据</div>
+    </div>
+</div>
+<div class="blank"></div>
+<!-- 分割栏 -->
+<div class="depart_line" id="school"></div>
+<div class="depart_text">高校</div>
+<div class="blank"></div>
+
+<!-- 展示高校新闻内容 -->
+<div class="main">
+{volist name="news" id="my_news"}
+	<div class="news">
+        <a id="link" href="{$my_news.url}" target="_blank">{$my_news.title}</a>
+        <hr width="100%" size="1" color="#e6e6e6">
+    </div>
+{/volist}
+<div class="detail">
+        <form method="post" name="MyForm" action="list">
+            <input type="hidden" value="{$today}" name="day">
+        </form>
+        <a onclick="document.MyForm.submit()">进入高校&nbsp;&nbsp;▷ </a>
+    </div>
+    <div class="grey_line"></div>
+</div>
+
+<!-- 分割栏 -->
+<div class="depart_line" id="tech"></div>
+<div class="depart_text">
+    科技
+</div>
+<div class="blank"></div>
+
+<!-- 展示科技新闻内容 -->
+<div class="main">
+	{volist name="tech_news" id="my_news"}
+		<div class="news_tech">
+	        <img id="tech_img" src="{$my_news.image}"/>
+	        <a id="tech_title" href="{$my_news.url}" target="_blank">{$my_news.title}</a>
+	    </div>
+	    <div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+	{/volist}
+	<div class="detail">
+	    <form method="post" name="MyForm1" action="techDetail">
+	        <input type="hidden" value="{$today}" name="day">
+	    </form>
+	    <a onclick="document.MyForm1.submit()">进入科技&nbsp;&nbsp;▷ </a>
+	</div>
+	<div class="grey_line"></div>
+</div>
+<!-- 分割栏 -->
+<div class="depart_line" id="BigData"></div>
+<div class="depart_text">
+    大数据
+</div>
+<div class="blank"></div>
+<!-- 展示大数据新闻内容 -->
+<div class="main">
+	{volist name="bd_news" id="my_news"}
+		<div class="news_tech">
+	        <img id="tech_img" src="{$my_news.img}"/>
+	        <a id="tech_title" href="{$my_news.url}" target="_blank">{$my_news.title}</a>
+	    </div>
+	    <div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+	{/volist}
+	<div class="detail">
+	    <form method="post" name="MyForm2" action="bdDetail">
+	        <input type="hidden" value="{$today}" name="day">
+	    </form>
+	    <a onclick="document.MyForm2.submit()">进入大数据&nbsp;&nbsp;▷ </a>
+	</div>
+	<div class="grey_line"></div>
+</div>
+
+<img src="_IMG_/return_top.png" id="back">
+<div class="bottom">
+    www.zuomeng.news
+</div>
+</body>
+</html>

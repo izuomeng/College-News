@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>科技</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/detail.css">
+<link rel="stylesheet" type="text/css" href="_CSS_/test2.css">
+<script src="_JS_/jquery.js"></script>
+<script src="_JS_/scrollto.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#back").hide();
+    });
+    $("#back").click(function(){
+        $.scrollTo('#ps',1000);
+        $("#back").hide();
+    });
+    $(function(){
+        $(".return_index").click(function(){
+            window.location.href = "index";
+        });
+    });
+    function back() {
+        if (window.scrollY>1000){
+            $("#back").show();
+        }else {
+            $("#back").hide();
+        }
+    }
+    function a(){
+        //window.scrollTo(0,0);
+        $.scrollTo('#ps',1000);
+        $("#back").hide();
+    }
+    document.addEventListener("touchstart",back);
+    document.addEventListener("touchend",back);
+</script>
+<body>
+<div id="ps"></div>
+<div class="return_index">返回首页</div>
+<div class="title">全部科技</div>
+<div style="height: 120px"></div>
+<div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+<!-- 展示科技新闻内容 -->
+<div class="main">
+	{volist name="tech_news" id="my_news"}
+		<div class="news_tech">
+	        <img id="tech_img" src="{$my_news.image}"/>
+	        <a id="tech_title" href="{$my_news.url}" target="_blank">{$my_news.title}</a>
+	    </div>
+	    <div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+	{/volist}
+	<div class="grey_line"></div>
+</div>
+<img src="_IMG_/return_top.png" id="back" onclick="a()">
+
+</body>
+</html>

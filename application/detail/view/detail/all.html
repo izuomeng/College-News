@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>全部高校</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/detail.css">
+<link rel="stylesheet" type="text/css" href="_CSS_/test.css">
+<script src="_JS_/jquery.js"></script>
+<script src="_JS_/scrollto.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#back").hide();
+    });
+    $("#back").click(function(){
+        $.scrollTo('#ps',1000);
+        $("#back").hide();
+    });
+    $(function(){
+        $(".return_index").click(function(){
+            window.location.href = "index";
+        });
+    });
+    function back() {
+        if (window.scrollY>1000){
+            $("#back").show();
+        }else {
+            $("#back").hide();
+        }
+    }
+    function a(){
+        //window.scrollTo(0,0);
+        $.scrollTo('#ps',1000);
+        $("#back").hide();
+    }
+    document.addEventListener("touchstart",back);
+    document.addEventListener("touchend",back);
+</script>
+<body>
+<div id="ps" style="position: absolute; top: 0"></div>
+<form method="post" name="MyForm" action="list">
+    <input type="hidden" value="{$day}" name="day">
+</form>
+<div class="return_index">返回首页</div>
+<div class="title">
+    <a onclick="document.MyForm.submit()">全部高校</a>
+</div>
+<div style="height: 100px"></div>
+
+{volist name="schools" id="school"}
+	<div class="depart_line"></div>
+        <div class="depart_text">
+            {$school.school}
+        </div>
+        <div style="height: 170px;"></div>
+	<div>
+	{volist name="all_news" id="news"}
+		{if condition="$news.school eq $school.school"}
+		<div class="news_tech">
+            <img id="tech_img" src="{$news.img}"/>
+            <a id="school_title" href="{$news.url}" target="_blank">{$news.title}
+            <p style="color: grey; font-size: 38px; line-height: 48px">&nbsp;&nbsp;&nbsp;&nbsp;{$news.summary}</p>
+            </a>
+        </div>
+        <div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+		{/if}
+	{/volist}
+	</div>
+{/volist}
+<img src="_IMG_/return_top.png" id="back" onclick="a()">
+
+</body>
+</html>

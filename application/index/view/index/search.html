@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>搜索</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/test.css">
+<body>
+<form id="pp" method="post" action="search">
+    <input id="search" type="search" placeholder="搜索..." name="search">
+</form>
+<div style="height: 150px"></div>
+{if condition="$result eq 0"}
+	<div class="news">
+        <font style='color: orange'>没有搜索到匹配内容</font>
+    </div>
+{else /}
+	{volist name="school_news" id="news"}
+		<div class="news">
+	        <a id="link" href="{$news.url}">{$news.title}</a>
+	        <hr width="100%" size="1" color="#e6e6e6">
+	    </div>
+	{/volist}
+	{volist name="tech_news" id="news"}
+		<div class="news">
+	        <a id="link" href="{$news.url}">{$news.title}</a>
+	        <hr width="100%" size="1" color="#e6e6e6">
+	    </div>
+	{/volist}
+	{volist name="bd_news" id="news"}
+		<div class="news">
+	        <a id="link" href="{$news.url}">{$news.title}</a>
+	        <hr width="100%" size="1" color="#e6e6e6">
+	    </div>
+	{/volist}
+{/if}
+<div style="width: 100%; text-align: center; color: orange; height: 150px">
+	<a style="color: orange; text-decoration: none;" href="index">返回首页</a>
+</div>
+</body>
+</html>

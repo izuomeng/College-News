@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>首页</title>
+</head>
+<body style="width: 70%; margin-left: 15%">
+	<div style="width: 100%">
+    <div style="font-size: 30px; width: 80%; text-align: center; color: orange; margin-left: 10%">
+        {$date}
+    </div>
+</div>
+<div style="position: absolute; left: 15%; width: 70%; height: 40px">
+    <!-- <div style="width: 8px; height: 30px; background-color: orange; position: fixed; left: 0"></div> -->
+    <div style="display:table; position: absolute; left: 10px; background-color: #ffffff; height: 100%;">
+        <div style="display:table-cell;padding-left: 2px; padding-right: 2px; vertical-align: middle;font-size: 26px">
+            <a style="text-decoration: none; color: black" href="pcDetail">高校</a>
+        </div>
+    </div>
+    <div style="height: 2px; width: 100%"></div>
+    <div style="background-color: orange; height: 90%; width: 100%; "></div>
+</div>
+<div style="height: 40px"></div>
+
+<!-- 展示高校新闻内容 -->
+{volist name="news" id="my_news"}
+	<div style="text-align: left; padding-top: 10px; font-size: 20px">
+        <a href="{$my_news.url}" style="color: black; text-decoration:none;">{$my_news.title}</a>
+    </div>
+{/volist}
+
+<!--科技-->
+<div style="position: absolute; left: 15%; width: 70%; height: 40px; margin-top: 20px">
+    <!-- <div style="width: 8px; height: 30px; background-color: orange; position: fixed; left: 0"></div> -->
+    <div style="font-size: 20px; position: absolute; left: 10px; background-color: #ffffff; height: 40px; display: table">
+        <div style="padding-left: 2px; padding-right: 2px; font-size: 26px;vertical-align: middle; display:table-cell;">
+            <a style="text-decoration: none; color: black" href="pcTechDetail">科技</a>
+        </div>
+    </div>
+    <div style="height: 2px; width: 100%"></div>
+    <div style="background-color: orange; height: 90%; width: 100%"></div>
+</div>
+<div style="height: 55px"></div>
+{volist name="tech_news" id="my_news"}
+	<div style=" width: auto; height: auto; text-align: left; padding-top: 10px; display: table">
+        <a href="{$my_news.url}"><img src="{$my_news.image}" style="height: 120px; width:180px;" /></a>
+        <a href="{$my_news.url}" style="padding-left:10px; text-decoration: none;font-size: 20px; color:black; vertical-align: middle; display:table-cell;">{$my_news.title}</a>
+    </div>
+    <hr width="100%" color="#e6e6e6" size="1">
+{/volist}
+
+<div style="position: absolute; left: 15%; width: 70%; height: 40px; padding-top: 10px">
+    <!-- <div style="width: 8px; height: 30px; background-color: orange; position: fixed; left: 0"></div> -->
+    <div style="font-size: 20px; position: absolute; left: 10px; background-color: #ffffff; height: 40px;">
+        <div style="padding-left: 2px; padding-right: 2px; font-size: 26px">
+            <a style="text-decoration: none; color: black" href="pcBdDetail">大数据</a>
+        </div>
+    </div>
+    <div style="height: 2px; width: 100%"></div>
+    <div style="background-color: orange; height: 90%; width: 100%"></div>
+</div>
+<div style="height: 55px"></div>
+<!-- 展示大数据新闻内容 -->
+{volist name="bd_news" id="my_news"}
+	<div style=" width: auto; height: auto; text-align: left; padding-top: 10px">
+        <a href="{$my_news.url}" style="color: black; text-decoration:none;font-size: 20px">{$my_news.title}</a>
+        <p style="width: 90%; font-size: 15px; color: gray; margin-left: 20px; margin-top: 0; ">{$my_news.sum}</p>
+        <hr width="100%" color="#e6e6e6" size="1">
+    </div>
+{/volist}
+</body>
+</html>

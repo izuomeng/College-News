@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>大数据</title>
+</head>
+<link rel="stylesheet" type="text/css" href="_CSS_/PC.css">
+<body>
+<div class="main">
+	{volist name="bd_news" id="my_news"}
+		<div class="news_tech">
+	        <img id="tech_img" src="{$my_news.img}"/>
+	        <a id="tech_title" href="{$my_news.url}" target="_blank">{$my_news.title}</a>
+	    </div>
+	    <div class="news"><hr width="100%" color="#e6e6e6" size="1"></div>
+	{/volist}
+</div>
+</body>
+</html>
