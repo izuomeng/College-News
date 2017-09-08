@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>load-more</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="load-more.js"></script>
+</head>
+<body>
+<div class="content"></div>
+<div class="loading"></div>
+<script>
+    var load = new LoadMore(document.getElementsByClassName('content')[0], document.getElementsByClassName('loading')[0]);
+    load.init();
+</script>
+</body>
+</html>

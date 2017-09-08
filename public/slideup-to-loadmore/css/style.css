@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box; }
+
+.content {
+  padding: 20px;
+  font-size: 2em;
+  max-width: 800px;
+  margin: 0 auto; }
+
+.loading {
+  text-align: center;
+  font-size: 2em;
+  color: cornflowerblue;
+  word-break: break-all;
+  word-wrap: break-word; }
+
+/*# sourceMappingURL=style.css.map */
